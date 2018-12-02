@@ -1,6 +1,3 @@
-from collections import Counter
-
-
 INPUT_FILE = "./input.txt"
 
 

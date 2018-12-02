@@ -12,10 +12,10 @@ def main():
     for line in open(INPUT_FILE, mode="rt"):
         box_id = line.strip()
 
-        if matches_2(line):
+        if matches_2(box_id):
             two_matched_count += 1
 
-        if matches_3(line):
+        if matches_3(box_id):
             three_matched_count += 1
 
     print(two_matched_count * three_matched_count)
