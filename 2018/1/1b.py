@@ -1,3 +1,4 @@
+from itertools import accumulate, cycle
 from collections import Counter
 
 
@@ -23,6 +24,15 @@ def main():
 
     print(i)
     print(results.most_common(1)[0])
+
+
+def main2():
+    # Lovely solution from
+    # https://www.reddit.com/r/adventofcode/comments/a20646/2018_day_1_solutions/eauapmb
+    changes = gen_change()
+    seen = set([0])
+
+    print(next(f for f in accumulate(cycle(changes)) if f in seen or seen.add(f)))
 
 
 if __name__ == '__main__':
