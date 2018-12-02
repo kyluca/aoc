@@ -1,5 +1,6 @@
 import logging
 import os
+import shutil
 
 import click
 import requests
@@ -32,6 +33,8 @@ def main(year, day, session):
         fp.write(input_response.content)
 
     logging.info(f"Dumped input to {filepath}")
+    logging.info(f"Copying stub file")
+    shutil.copyfile("./stub.py", f"./{year}/{day}/{day}a.py")
 
 
 if __name__ == '__main__':
