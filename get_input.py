@@ -26,15 +26,17 @@ def main(year, day, session):
         logging.error("Failed to download input")
         return
 
-    filepath = f"./{year}/{day}/input.txt"
-    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    input_filepath = f"./{year}/{day}/input.txt"
+    input_filepath_backup = f"./{year}/{day}/input_backup.txt"
+    os.makedirs(os.path.dirname(input_filepath), exist_ok=True)
 
-    with open(filepath, mode="wb") as fp:
+    with open(input_filepath, mode="wb") as fp:
         fp.write(input_response.content)
 
-    logging.info(f"Dumped input to {filepath}")
+    logging.info(f"Dumped input to {input_filepath}")
     logging.info(f"Copying stub file")
     shutil.copyfile("./stub.py", f"./{year}/{day}/{day}a.py")
+    shutil.copyfile(input_filepath, input_filepath_backup)
 
 
 if __name__ == '__main__':
